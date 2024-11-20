@@ -4,16 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Users DB</title>
 </head>
 
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	<h1>Database of Users</h1>
-
 	{include content}
-
 
 	{block scripts}
 	<script src="https://unpkg.com/nette-forms@3"></script>

@@ -15,7 +15,7 @@ return array (
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732119694,
+      1 => 1732126065,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -35,7 +35,12 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1730991161,
+      1 => 1732127190,
+    ),
+    'App\\UI\\Registration\\RegistrationPresenter' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Registration\\RegistrationPresenter.php',
+      1 => 1732127277,
     ),
   ),
   1 => 

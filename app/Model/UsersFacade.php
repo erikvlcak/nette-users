@@ -2,16 +2,23 @@
 
 namespace App\Model;
 
-use Nette;
+use Nette\Database\Explorer;
 
 final class UsersFacade
 {
     public function __construct(
-        private Nette\Database\Explorer $database,
-    ) {}
+        private Explorer $database,
+    ) {
+        $this->database = $database;
+    }
 
-    public function getDatabaseAccess()
+    public function getUsersTable()
     {
-        return $this->database->table('users')->order('created_at DESC');
+        return $this->database->table('users');
+    }
+
+    public function insertUser(array $data): void
+    {
+        $this->getUsersTable()->insert($data);
     }
 }

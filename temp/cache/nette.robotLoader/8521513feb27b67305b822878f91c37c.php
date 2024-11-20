@@ -15,7 +15,7 @@ return array (
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732119694,
+      1 => 1732126065,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -35,14 +35,33 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1730991161,
+      1 => 1732127190,
+    ),
+    'App\\UI\\Registration\\RegistrationPresenter' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Registration\\RegistrationPresenter.php',
+      1 => 1732127345,
     ),
   ),
   1 => 
   array (
-    'null' => 2,
+    'null' => 3,
     'App\\UI\\Home\\HomeDefaultTemplate' => 3,
     'App\\UI\\Home\\HomeTemplate' => 3,
+    'App\\UI\\Sign\\SignInTemplate' => 3,
+    'App\\UI\\Sign\\SignTemplate' => 3,
+    'App\\UI\\Sign\\SignPresenter' => 2,
+    'App\\UI\\register\\registerPresenter' => 3,
+    'App\\UI\\Sign\\RegisterPresenter' => 2,
+    'App\\UI\\Register\\RegisterDefaultTemplate' => 3,
+    'App\\UI\\Register\\RegisterTemplate' => 3,
+    'App\\UI\\Register\\RegisterRegisterFormTemplate' => 1,
+    'App\\UI\\Register\\RegisterRegisterTemplate' => 1,
+    'App\\UI\\Register\\RegisterNewTemplate' => 1,
+    'App\\UI\\Register\\RegisterPresenter' => 3,
+    'App\\UI\\RegistrationPresenter\\RegistrationPresenter' => 2,
+    'App\\UI\\Registration\\RegistrationNewTemplate' => 3,
+    'App\\UI\\Registration\\RegistrationTemplate' => 3,
   ),
   2 => 
   array (

@@ -37,7 +37,7 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 			}) /* line 7 */;
 			echo ' | ';
 		}
-		echo 'Nette Web</title>
+		echo 'Users DB</title>
 </head>
 
 <body>
@@ -52,13 +52,10 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 
 		}
 
-		echo '
-	<h1>Database of Users</h1>
-
-';
-		$this->renderBlock('content', [], 'html') /* line 15 */;
 		echo "\n";
-		$this->renderBlock('scripts', get_defined_vars()) /* line 17 */;
+		$this->renderBlock('content', [], 'html') /* line 13 */;
+		echo "\n";
+		$this->renderBlock('scripts', get_defined_vars()) /* line 15 */;
 		echo '</body>
 </html>
 ';
@@ -78,7 +75,7 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 17 */
+	/** {block scripts} on line 15 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '	<script src="https://unpkg.com/nette-forms@3"></script>

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\web\BE\nette-users\app\UI\Home/default.latte */
-final class Template_716cf501db extends Latte\Runtime\Template
+/** source: C:\web\BE\nette-users\app\UI\Registration/new.latte */
+final class Template_252f83a79f extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Home/default.latte';
+	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Registration/new.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent', 'title' => 'blockTitle'],
@@ -36,24 +36,20 @@ final class Template_716cf501db extends Latte\Runtime\Template
 
 		echo "\n";
 		$this->renderBlock('title', get_defined_vars()) /* line 3 */;
-		echo "\n";
-		$ʟ_tmp = $this->global->uiControl->getComponent('signInForm');
+		$ʟ_tmp = $this->global->uiControl->getComponent('registerForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 5 */;
+		$ʟ_tmp->render() /* line 4 */;
 
-		echo '
-<h3>Not registered yet? <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Registration:new')) /* line 7 */;
-		echo '">Do it here!</a></h3>
-
-';
+		echo '<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Home:')) /* line 5 */;
+		echo '">Back to login page.</a></button>';
 	}
 
 
 	/** n:block="title" on line 3 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '<h1>Login</h1>
+		echo '<h1>Register</h1>
 ';
 	}
 }
