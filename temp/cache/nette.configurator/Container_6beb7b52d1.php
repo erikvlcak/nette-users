@@ -80,6 +80,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 		'App\UI\Home\HomePresenter' => [2 => ['application.3']],
 		'NetteModule\ErrorPresenter' => [2 => ['application.4']],
 		'NetteModule\MicroPresenter' => [2 => ['application.5']],
+		'App\Model\UsersFacade' => [['02']],
 	];
 
 
@@ -92,6 +93,12 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 	public function createService01(): Nette\Application\Routers\RouteList
 	{
 		return App\Core\RouterFactory::createRouter();
+	}
+
+
+	public function createService02(): App\Model\UsersFacade
+	{
+		return new App\Model\UsersFacade($this->getService('database.default.explorer'));
 	}
 
 
@@ -210,7 +217,12 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 
 	public function createServiceDatabase__default__connection(): Nette\Database\Connection
 	{
-		$service = new Nette\Database\Connection('sqlite::memory:', null, null, []);
+		$service = new Nette\Database\Connection(
+			'mysql:host=127.0.0.1;dbname=nette_users',
+			/*sensitive{*/'root'/*}*/,
+			/*sensitive{*/''/*}*/,
+			[],
+		);
 		Nette\Bridges\DatabaseTracy\ConnectionPanel::initialize(
 			$service,
 			true,

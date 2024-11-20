@@ -10,7 +10,10 @@
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	<h1>Database of Users</h1>
+
 	{include content}
+
 
 	{block scripts}
 	<script src="https://unpkg.com/nette-forms@3"></script>

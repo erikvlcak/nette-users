@@ -12,6 +12,11 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Core\\RouterFactory.php',
       1 => 1730991161,
     ),
+    'App\\Model\\UsersFacade' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
+      1 => 1732119694,
+    ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Accessory\\LatteExtension.php',
@@ -35,9 +40,9 @@ return array (
   ),
   1 => 
   array (
-    'null' => 1,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 1,
-    'App\\UI\\Home\\HomeTemplate' => 1,
+    'null' => 2,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 3,
+    'App\\UI\\Home\\HomeTemplate' => 3,
   ),
   2 => 
   array (
