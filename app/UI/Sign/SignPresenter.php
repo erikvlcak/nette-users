@@ -56,16 +56,19 @@ final class SignPresenter extends Presenter
 
         $form->addText('username', 'Your username:')
             ->setHtmlAttribute('placeholder', 'janedoe')
-            ->setRequired('Please enter your username.');
+            ->setRequired('Please enter your username.')
+            ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
 
         $form->addEmail('email', 'Your email:')
             ->setHtmlAttribute('placeholder', 'jane.doe@email.me')
-            ->setRequired('Please enter your email.');
+            ->setRequired('Please enter your email.')
+            ->addRule($form::Email, 'Please enter a valid email address.');
+
 
         $form->addPassword('password', 'New password:')
             ->setHtmlAttribute('placeholder', '12345')
             ->setRequired('Please create a new password.')
-            ->addRule($form::MinLength, 'Password must have at least 5 characters.', 5);
+            ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
 
         $form->addSubmit('send', 'Sign up');
 
