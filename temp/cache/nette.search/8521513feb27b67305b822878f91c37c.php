@@ -15,7 +15,12 @@ return array (
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732210927,
+      1 => 1732217920,
+    ),
+    'App\\Model\\DuplicateNameException' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
+      1 => 1732217920,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -37,13 +42,21 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
       1 => 1732146435,
     ),
+    'App\\UI\\List\\ListPresenter' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php',
+      1 => 1732215528,
+    ),
+    'App\\UI\\Sign\\SignPresenter' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php',
+      1 => 1732217283,
+    ),
   ),
   1 => 
   array (
   ),
   2 => 
   array (
-    'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php' => 1732209869,
-    'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php' => 1732209644,
   ),
 );

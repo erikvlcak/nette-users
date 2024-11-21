@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Model;
 
 use Nette;
 use Nette\Security\Passwords;
-use Nette\Security\SimpleIdentity;
 
 final class UsersFacade implements Nette\Security\Authenticator
 {
@@ -13,8 +14,9 @@ final class UsersFacade implements Nette\Security\Authenticator
         private Passwords $passwords,
     ) {}
 
-    public function authenticate(string $username, string $password): SimpleIdentity
+    public function authenticate(array $credentials): Nette\Security\IIdentity
     {
+        [$username, $password] = $credentials;
         $row = $this->database->table('users')->where('username', $username)->fetch();
 
         if (!$row) {
@@ -23,11 +25,9 @@ final class UsersFacade implements Nette\Security\Authenticator
             throw new Nette\Security\AuthenticationException('The password is not correct.');
         }
 
-        return new SimpleIdentity(
-            $row->id,
-            $row->role,
-            ['name' => $row->username],
-        );
+        $arr = $row->toArray();
+        unset($arr['Password']);
+        return new Nette\Security\SimpleIdentity($row['id'], ['role'], $arr);
     }
 
     public function add(string $fullname, string $username, string $email, string $password): void

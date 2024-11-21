@@ -4,20 +4,22 @@ namespace App\UI\Sign;
 
 use Nette;
 use App\Model\DuplicateNameException;
-use App\Model\UserFacade;
 use App\Model\UsersFacade;
-use App\UI\Accessory\FormFactory;
-use Nette\Application\Attributes\Persistent;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
+use Nette\Application\Attributes\Persistent;
 
 final class SignPresenter extends Presenter
 {
+
+    #[Persistent]
+    public string $backlink = '';
 
     public function __construct(
         private UsersFacade $usersFacade,
     ) {}
 
+    //Sign IN
     protected function createComponentSignInForm(): Form
     {
         $form = new Form;
@@ -34,15 +36,16 @@ final class SignPresenter extends Presenter
             try {
                 // Attempt to login user
                 $this->getUser()->login($data->username, $data->password);
-                $this->redirect('List:');
+                $this->restoreRequest($this->backlink);
+                $this->redirect('Dashboard:');
             } catch (Nette\Security\AuthenticationException) {
-                $form->addError('Provided username or password is incorrect.');
+                $form->addError('The username or password you entered is incorrect.');
             }
         };
-
         return $form;
     }
 
+    //Sign UP
     protected function createComponentSignUpForm(): Form
     {
         $form = new Form;
@@ -77,6 +80,8 @@ final class SignPresenter extends Presenter
 
         return $form;
     }
+
+    //Log OUT
     public function actionOut(): void
     {
         $this->getUser()->logout();
