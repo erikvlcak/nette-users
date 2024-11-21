@@ -12,10 +12,15 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Core\\RouterFactory.php',
       1 => 1730991161,
     ),
+    'App\\Security\\MyAuthenticator' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\Model\\MyAuthenticator.php',
+      1 => 1732146377,
+    ),
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732126065,
+      1 => 1732141719,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -35,12 +40,12 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1732127190,
+      1 => 1732146376,
     ),
     'App\\UI\\Registration\\RegistrationPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1732127277,
+      1 => 1732141803,
     ),
   ),
   1 => 

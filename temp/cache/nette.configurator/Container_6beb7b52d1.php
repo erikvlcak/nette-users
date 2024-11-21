@@ -62,6 +62,9 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 		'Nette\Routing\Router' => [['01']],
 		'ArrayAccess' => [2 => ['01', 'application.1', 'application.3', 'application.4']],
 		'Nette\Application\Routers\RouteList' => [['01']],
+		'Nette\Security\Authenticator' => [['02']],
+		'Nette\Security\IAuthenticator' => [['02']],
+		'App\Security\MyAuthenticator' => [['02']],
 		'Nette\Application\UI\Presenter' => [2 => ['application.1', 'application.3', 'application.4']],
 		'Nette\Application\UI\Control' => [2 => ['application.1', 'application.3', 'application.4']],
 		'Nette\Application\UI\Component' => [2 => ['application.1', 'application.3', 'application.4']],
@@ -81,7 +84,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 		'App\UI\Registration\RegistrationPresenter' => [2 => ['application.4']],
 		'NetteModule\ErrorPresenter' => [2 => ['application.5']],
 		'NetteModule\MicroPresenter' => [2 => ['application.6']],
-		'App\Model\UsersFacade' => [['02']],
+		'App\Model\UsersFacade' => [['03']],
 	];
 
 
@@ -97,7 +100,13 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 	}
 
 
-	public function createService02(): App\Model\UsersFacade
+	public function createService02(): App\Security\MyAuthenticator
+	{
+		return new App\Security\MyAuthenticator($this->getService('03'), $this->getService('security.passwords'));
+	}
+
+
+	public function createService03(): App\Model\UsersFacade
 	{
 		return new App\Model\UsersFacade($this->getService('database.default.explorer'));
 	}
@@ -128,7 +137,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 
 	public function createServiceApplication__3(): App\UI\Home\HomePresenter
 	{
-		$service = new App\UI\Home\HomePresenter;
+		$service = new App\UI\Home\HomePresenter($this->getService('02'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -145,7 +154,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 
 	public function createServiceApplication__4(): App\UI\Registration\RegistrationPresenter
 	{
-		$service = new App\UI\Registration\RegistrationPresenter($this->getService('02'));
+		$service = new App\UI\Registration\RegistrationPresenter($this->getService('03'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -354,7 +363,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 
 	public function createServiceSecurity__user(): Nette\Security\User
 	{
-		$service = new Nette\Security\User($this->getService('security.userStorage'));
+		$service = new Nette\Security\User($this->getService('security.userStorage'), $this->getService('02'));
 		$this->getService('tracy.bar')->addPanel(new Nette\Bridges\SecurityTracy\UserPanel($service));
 		return $service;
 	}
