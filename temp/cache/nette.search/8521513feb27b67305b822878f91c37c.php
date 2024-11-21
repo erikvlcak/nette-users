@@ -12,15 +12,10 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Core\\RouterFactory.php',
       1 => 1730991161,
     ),
-    'App\\Security\\MyAuthenticator' => 
-    array (
-      0 => 'C:\\web\\BE\\nette-users\\app\\Model\\MyAuthenticator.php',
-      1 => 1732146377,
-    ),
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732141719,
+      1 => 1732210927,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -40,12 +35,7 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1732146376,
-    ),
-    'App\\UI\\Registration\\RegistrationPresenter' => 
-    array (
-      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Registration\\RegistrationPresenter.php',
-      1 => 1732141803,
+      1 => 1732146435,
     ),
   ),
   1 => 
@@ -53,5 +43,7 @@ return array (
   ),
   2 => 
   array (
+    'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php' => 1732209869,
+    'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php' => 1732209644,
   ),
 );
