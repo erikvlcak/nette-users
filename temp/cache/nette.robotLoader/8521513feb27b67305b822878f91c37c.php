@@ -10,17 +10,17 @@ return array (
     'App\\Core\\RouterFactory' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Core\\RouterFactory.php',
-      1 => 1730991161,
+      1 => 1732220892,
     ),
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732217920,
+      1 => 1732221626,
     ),
     'App\\Model\\DuplicateNameException' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732217920,
+      1 => 1732221626,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -40,7 +40,7 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
-      1 => 1732146435,
+      1 => 1732220161,
     ),
     'App\\UI\\List\\ListPresenter' => 
     array (
@@ -50,7 +50,7 @@ return array (
     'App\\UI\\Sign\\SignPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php',
-      1 => 1732217283,
+      1 => 1732221625,
     ),
   ),
   1 => 
@@ -72,6 +72,12 @@ return array (
     'App\\UI\\Registration\\RegistrationNewTemplate' => 3,
     'App\\UI\\Registration\\RegistrationTemplate' => 3,
     'App\\UI\\Registration\\RegistrationPresenter' => 3,
+    'App\\UI\\Sign\\SignDefaultTemplate' => 1,
+    'App\\UI\\List\\ListUsersTemplate' => 1,
+    'App\\UI\\List\\ListTemplate' => 3,
+    'App\\UI\\Sign\\SignOutTemplate' => 3,
+    'App\\UI\\List\\ListDefaultTemplate' => 3,
+    'App\\UI\\Sign\\SignUpTemplate' => 3,
   ),
   2 => 
   array (

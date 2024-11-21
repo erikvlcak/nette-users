@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Nette\Security\IIdentity;
+
+
 use Nette;
 use Nette\Security\Passwords;
 
@@ -44,6 +47,11 @@ final class UsersFacade implements Nette\Security\Authenticator
         } catch (Nette\Database\UniqueConstraintViolationException $e) {
             throw new DuplicateNameException;
         }
+    }
+
+    public function authenticateUser(string $username, string $password): IIdentity
+    {
+        return $this->authenticate([$username, $password]);
     }
 }
 

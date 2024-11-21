@@ -12,8 +12,7 @@ use Nette\Application\Attributes\Persistent;
 final class SignPresenter extends Presenter
 {
 
-    #[Persistent]
-    public string $backlink = '';
+
 
     public function __construct(
         private UsersFacade $usersFacade,
@@ -35,9 +34,9 @@ final class SignPresenter extends Presenter
         $form->onSuccess[] = function (Form $form, \stdClass $data): void {
             try {
                 // Attempt to login user
-                $this->getUser()->login($data->username, $data->password);
-                $this->restoreRequest($this->backlink);
-                $this->redirect('Dashboard:');
+                $identity = $this->usersFacade->authenticateUser($data->username, $data->password);
+                $this->getUser()->login($identity);
+                $this->redirect('List:');
             } catch (Nette\Security\AuthenticationException) {
                 $form->addError('The username or password you entered is incorrect.');
             }
@@ -71,7 +70,7 @@ final class SignPresenter extends Presenter
 
         $form->onSuccess[] = function (Form $form, \stdClass $data): void {
             try {
-                $this->userFacade->add($data->fullname, $data->username, $data->email, $data->password);
+                $this->usersFacade->add($data->fullname, $data->username, $data->email, $data->password);
                 $this->redirect('List:');
             } catch (DuplicateNameException) {
                 $form->addError('Username or email are already taken.');
