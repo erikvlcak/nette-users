@@ -160,7 +160,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 
 	public function createServiceApplication__4(): App\UI\List\ListPresenter
 	{
-		$service = new App\UI\List\ListPresenter;
+		$service = new App\UI\List\ListPresenter($this->getService('02'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),
@@ -170,6 +170,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 			$this->getService('security.user'),
 			$this->getService('latte.templateFactory'),
 		);
+		$service->injectRequireLoggedUser();
 		$service->invalidLinkMode = 5;
 		return $service;
 	}

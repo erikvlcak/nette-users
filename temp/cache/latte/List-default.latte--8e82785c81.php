@@ -36,8 +36,12 @@ final class Template_8e82785c81 extends Latte\Runtime\Template
 
 		echo '<h1>List of users</h1>
 
-<p>Everything works right so far.</p>
+';
+		$ʟ_tmp = $this->global->uiControl->getComponent('simpleGrid');
+		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
+		$ʟ_tmp->render() /* line 4 */;
 
+		echo '
 <p>(<a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 6 */;
 		echo '">Sign out</a>)</p>';

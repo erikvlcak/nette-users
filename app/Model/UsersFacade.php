@@ -53,6 +53,21 @@ final class UsersFacade implements Nette\Security\Authenticator
     {
         return $this->authenticate([$username, $password]);
     }
+
+    public function updateUser(int $id, array $data): void
+    {
+        $this->database->table('users')->where('id', $id)->update($data);
+    }
+
+    public function deleteUser(int $id): void
+    {
+        $this->database->table('users')->where('id', $id)->delete();
+    }
+
+    public function getUsers()
+    {
+        return $this->database->table('users');
+    }
 }
 
 class DuplicateNameException extends \Exception {}
