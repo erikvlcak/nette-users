@@ -61,7 +61,7 @@ final class UsersFacade implements Nette\Security\Authenticator
         $this->database->table('users')->where('id', $id)->update($data);
     }
 
-    public function deleteUser(int $id): void
+    public function deleteUser(int $id)
     {
         $this->database->table('users')->where('id', $id)->delete();
     }

@@ -36,15 +36,18 @@ final class Template_b14997409e extends Latte\Runtime\Template
 
 		echo "\n";
 		$this->renderBlock('title', get_defined_vars()) /* line 3 */;
-		echo "\n";
+		echo '
+<h3>Create a new account in order to view the database of users.</h3>
+
+';
 		$ʟ_tmp = $this->global->uiControl->getComponent('signUpForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 5 */;
+		$ʟ_tmp->render() /* line 7 */;
 
 		echo '
-<p class="text-center"><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 7 */;
-		echo '">Do you already have an account? Log in!</a></p>';
+<p class="text-center">Do you already have an account? <button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 9 */;
+		echo '">Log in!</a></button></p>';
 	}
 
 

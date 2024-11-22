@@ -1,8 +1,9 @@
 {block content}
-<h1>List of users</h1>
+<h1 n:block=title>List of users</h1>
+
+<h3>Current user: {$currentUser} </h3>
 
 {control simpleGrid}
 
-<a n:href="Action:create">Add new user</a>
-
-<p>(<a n:href="Sign:out">Sign out</a>)</p>
+<button><a n:href="Action:create">Add new user</a></button>
+<button><a n:href="Sign:out">Sign out</a></button>

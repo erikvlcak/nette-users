@@ -36,16 +36,18 @@ final class Template_40f2ae56e0 extends Latte\Runtime\Template
 
 		$this->renderBlock('title', get_defined_vars()) /* line 2 */;
 		echo '
-<p><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 4 */;
-		echo '">Sign back again!</a></p>';
+<h3>You have been signed out. Thank you for your visit.</h3>
+
+<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 6 */;
+		echo '">Sign back again!</a></button>';
 	}
 
 
 	/** n:block="title" on line 2 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '<h1>You are now signed out.</h1>
+		echo '<h1>Sign out</h1>
 ';
 	}
 }

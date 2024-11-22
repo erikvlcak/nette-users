@@ -1,5 +1,9 @@
 {block content}
 
-<h1>Edit selected user</h1>
+<h1 n:block=title>Edit user</h1>
+
+<h3>Update data about {$selectedUser}</h3>
 
 {control addUserForm}
+
+<button><a n:href="List:show">Cancel</a></button>

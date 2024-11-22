@@ -3,12 +3,11 @@
 namespace App\UI\Action;
 
 use App\UI\Accessory\RequireLogin;
-use Nette;
-use App\Model\DuplicateNameException;
+
 use App\Model\UsersFacade;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
-use Nette\Application\Attributes\Persistent;
+
 
 
 final class ActionPresenter extends Presenter
@@ -27,26 +26,26 @@ final class ActionPresenter extends Presenter
         $form = new Form;
 
         $form->addText('fullname', 'New full name:')
-            ->setHtmlAttribute('placeholder', 'James Bond')
+            ->setHtmlAttribute('placeholder', 'John Doe')
             ->setRequired('Please enter new full name.');
 
         $form->addText('username', 'New username:')
-            ->setHtmlAttribute('placeholder', 'martinilover')
+            ->setHtmlAttribute('placeholder', 'John Doe')
             ->setRequired('Please enter new username.')
             ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
 
         $form->addEmail('email', 'New email:')
-            ->setHtmlAttribute('placeholder', 'james@bond.me')
+            ->setHtmlAttribute('placeholder', 'johndoe@email.me')
             ->setRequired('Please enter new email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
 
 
         $form->addPassword('password', 'New password:')
-            ->setHtmlAttribute('placeholder', 'agent007')
+            ->setHtmlAttribute('placeholder', '11111')
             ->setRequired('Please create a new password.')
             ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
 
-        $form->addSubmit('save', 'Save');
+        $form->addSubmit('save', 'Save user');
 
         $form->onSuccess[] = function (array $data): void {
 
@@ -78,12 +77,15 @@ final class ActionPresenter extends Presenter
         if ($form instanceof Form) {
             $form->setDefaults($editedUser->toArray());
         }
+
+        $this->template->selectedUser = $editedUser->username;
     }
 
     public function renderDelete(int $id): void
     {
+        $deletedUser = $this->usersFacade->getUserById($id);
         $this->usersFacade->deleteUser($id);
-        $this->flashMessage("User has been deleted.", 'success');
+        $this->flashMessage("User $deletedUser->username been deleted.", 'success');
         $this->redirect('List:show');
     }
 }

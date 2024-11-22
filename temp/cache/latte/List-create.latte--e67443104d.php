@@ -10,7 +10,7 @@ final class Template_e67443104d extends Latte\Runtime\Template
 	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\List/create.latte';
 
 	public const Blocks = [
-		['content' => 'blockContent'],
+		['content' => 'blockContent', 'title' => 'blockTitle'],
 	];
 
 
@@ -34,16 +34,30 @@ final class Template_e67443104d extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
+		echo "\n";
+		$this->renderBlock('title', get_defined_vars()) /* line 3 */;
 		echo '
-<h1>Add or edit user</h1>
+<h3>Add new user to the database.</h3>
 
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('addUserForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 5 */;
+		$ʟ_tmp->render() /* line 7 */;
 
 		echo '
+<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('List:show')) /* line 9 */;
+		echo '">Cancel</a></button>
 
+
+';
+	}
+
+
+	/** n:block="title" on line 3 */
+	public function blockTitle(array $ʟ_args): void
+	{
+		echo '<h1>New user</h1>
 ';
 	}
 }

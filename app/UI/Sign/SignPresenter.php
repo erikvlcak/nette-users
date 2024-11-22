@@ -18,15 +18,20 @@ final class SignPresenter extends Presenter
         private UsersFacade $usersFacade,
     ) {}
 
+
+
     //Sign IN
     protected function createComponentSignInForm(): Form
     {
+
+
+
         $form = new Form;
 
-        $form->addText('username', 'Enter username:')
+        $form->addText('username', 'Username:')
             ->setRequired('Please enter your username.');
 
-        $form->addPassword('password', 'Enter password:')
+        $form->addPassword('password', 'Password:')
             ->setRequired('Please enter your password.');
 
         $form->addSubmit('send', 'Sign in');
@@ -36,7 +41,7 @@ final class SignPresenter extends Presenter
                 // Attempt to login user
                 $identity = $this->usersFacade->authenticateUser($data->username, $data->password);
                 $this->getUser()->login($identity);
-                $this->flashMessage("Current user: $data->username", 'success');
+                $this->flashMessage("You are now logged in. Welcome $data->username!", 'success');
                 $this->redirect('List:show');
             } catch (Nette\Security\AuthenticationException) {
                 $form->addError('The username or password you entered is incorrect.');
@@ -50,22 +55,22 @@ final class SignPresenter extends Presenter
     {
         $form = new Form;
 
-        $form->addText('fullname', 'Your full name:')
+        $form->addText('fullname', 'Full name:')
             ->setHtmlAttribute('placeholder', 'Jane Doe')
             ->setRequired('Please enter your full name.');
 
-        $form->addText('username', 'Your username:')
+        $form->addText('username', 'Username:')
             ->setHtmlAttribute('placeholder', 'janedoe')
             ->setRequired('Please enter your username.')
             ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
 
-        $form->addEmail('email', 'Your email:')
-            ->setHtmlAttribute('placeholder', 'jane.doe@email.me')
+        $form->addEmail('email', 'Email:')
+            ->setHtmlAttribute('placeholder', 'janedoe@email.me')
             ->setRequired('Please enter your email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
 
 
-        $form->addPassword('password', 'New password:')
+        $form->addPassword('password', 'Password:')
             ->setHtmlAttribute('placeholder', '12345')
             ->setRequired('Please create a new password.')
             ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
@@ -75,7 +80,7 @@ final class SignPresenter extends Presenter
         $form->onSuccess[] = function (Form $form, \stdClass $data): void {
             try {
                 $this->usersFacade->add($data->fullname, $data->username, $data->email, $data->password);
-                $this->flashMessage("Current user: $data->username", 'success');
+                $this->flashMessage("Registration successfull, please sign in.", 'success');
                 $this->redirect('List:show');
             } catch (DuplicateNameException) {
                 $form->addError('Username or email are already taken.');

@@ -10,7 +10,7 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
 	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\List/show.latte';
 
 	public const Blocks = [
-		['content' => 'blockContent'],
+		['content' => 'blockContent', 'title' => 'blockTitle'],
 	];
 
 
@@ -34,20 +34,32 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '<h1>List of users</h1>
+		$this->renderBlock('title', get_defined_vars()) /* line 2 */;
+		echo '
+<h3>Current user: ';
+		echo LR\Filters::escapeHtmlText($currentUser) /* line 4 */;
+		echo ' </h3>
 
 ';
 		$ʟ_tmp = $this->global->uiControl->getComponent('simpleGrid');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 4 */;
+		$ʟ_tmp->render() /* line 6 */;
 
 		echo '
-<a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Action:create')) /* line 6 */;
-		echo '">Add new user</a>
+<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Action:create')) /* line 8 */;
+		echo '">Add new user</a></button>
+<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 9 */;
+		echo '">Sign out</a></button>
+';
+	}
 
-<p>(<a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 8 */;
-		echo '">Sign out</a>)</p>';
+
+	/** n:block="title" on line 2 */
+	public function blockTitle(array $ʟ_args): void
+	{
+		echo '<h1>List of users</h1>
+';
 	}
 }

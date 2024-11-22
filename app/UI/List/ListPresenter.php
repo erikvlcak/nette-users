@@ -9,8 +9,7 @@ use App\Model\UsersFacade;
 use App\UI\Accessory\RequireLogin;
 use Ublaboo\DataGrid\DataGrid;
 use Nette\Application\UI\Presenter;
-use Ublaboo\DataGrid\Column\Action\Confirmation\StringConfirmation;
-use Nette\Forms\Form;
+
 
 #[AllowDynamicProperties]
 
@@ -24,8 +23,16 @@ final class ListPresenter extends Presenter
         $this->usersFacade = $usersFacade;
     }
 
+    protected function beforeRender(): void
+    {
+        parent::beforeRender();
+        $identity = $this->getUser()->getIdentity();
+        $this->template->currentUser = $identity->username;
+    }
+
     protected function createComponentSimpleGrid(): DataGrid
     {
+
 
         $grid = new DataGrid();
 
