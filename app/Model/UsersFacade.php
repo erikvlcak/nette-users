@@ -56,7 +56,7 @@ final class UsersFacade implements Nette\Security\Authenticator
         return $this->authenticate([$username, $password]);
     }
 
-    public function updateUser(int $id, array $data): void
+    public function updateUser(int $id, array $data)
     {
         $this->database->table('users')->where('id', $id)->update($data);
     }

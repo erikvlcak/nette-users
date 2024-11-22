@@ -18,5 +18,9 @@ final class Template_a4a2381fcb extends Latte\Runtime\Template
 		if ($this->global->snippetDriver?->renderSnippets($this->blocks[self::LayerSnippet], $this->params)) {
 			return;
 		}
+
+		echo '
+
+';
 	}
 }

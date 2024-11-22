@@ -79,4 +79,11 @@ final class ActionPresenter extends Presenter
             $form->setDefaults($editedUser->toArray());
         }
     }
+
+    public function renderDelete(int $id): void
+    {
+        $this->usersFacade->deleteUser($id);
+        $this->flashMessage("User has been deleted.", 'success');
+        $this->redirect('List:show');
+    }
 }

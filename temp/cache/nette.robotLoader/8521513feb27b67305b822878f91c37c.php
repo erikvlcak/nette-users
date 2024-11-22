@@ -15,12 +15,12 @@ return array (
     'App\\Model\\UsersFacade' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732302458,
+      1 => 1732311909,
     ),
     'App\\Model\\DuplicateNameException' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\Model\\UsersFacade.php',
-      1 => 1732302458,
+      1 => 1732311909,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -47,20 +47,20 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Home\\HomePresenter.php',
       1 => 1732222944,
     ),
-    'App\\UI\\Action\\ActionPresenter' => 
-    array (
-      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ActionPresenter.php',
-      1 => 1732309622,
-    ),
     'App\\UI\\List\\ListPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php',
-      1 => 1732309559,
+      1 => 1732309746,
     ),
     'App\\UI\\Sign\\SignPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php',
       1 => 1732303727,
+    ),
+    'App\\UI\\Action\\ActionPresenter' => 
+    array (
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ActionPresenter.php',
+      1 => 1732311987,
     ),
   ),
   1 => 
@@ -103,6 +103,7 @@ return array (
     'App\\UI\\Action\\ActionCreateTemplate' => 3,
     'App\\UI\\Action\\ActionTemplate' => 3,
     'App\\UI\\Action\\ActionEditTemplate' => 3,
+    'App\\UI\\Action\\ActionDeleteTemplate' => 3,
   ),
   2 => 
   array (
