@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\UI\List;
 
+use AllowDynamicProperties;
 use App\Model\UsersFacade;
 use App\UI\Accessory\RequireLogin;
 use Ublaboo\DataGrid\DataGrid;
 use Nette\Application\UI\Presenter;
+use Ublaboo\DataGrid\Column\Action\Confirmation\StringConfirmation;
+use Nette\Forms\Form;
+
+#[AllowDynamicProperties]
 
 final class ListPresenter extends Presenter
 {
@@ -43,19 +48,10 @@ final class ListPresenter extends Presenter
             ->setSortable();
 
 
-        $grid->addAction('edit', 'Edit')
-            ->setIcon('pencil')
-            ->setClass('btn btn-xs btn-primary')
-            ->setTitle('Edit');
-
-        $grid->addAction('delete', 'Delete')
-            ->setIcon('trash')
-            ->setClass('btn btn-xs btn-danger')
-            ->setTitle('Delete');
+        $grid->addAction('edit', 'Edit user', 'Action:edit');
 
 
-
-
+        $grid->addAction('delete', 'Delete user', 'Action:delete');
 
         return $grid;
     }

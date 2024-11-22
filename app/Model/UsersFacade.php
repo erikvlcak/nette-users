@@ -8,6 +8,8 @@ use Nette\Security\IIdentity;
 
 
 use Nette;
+use Nette\Database\Table\ActiveRow;
+use Nette\Database\Table\Selection;
 use Nette\Security\Passwords;
 
 final class UsersFacade implements Nette\Security\Authenticator
@@ -64,9 +66,14 @@ final class UsersFacade implements Nette\Security\Authenticator
         $this->database->table('users')->where('id', $id)->delete();
     }
 
-    public function getUsers()
+    public function getUsers(): Selection
     {
         return $this->database->table('users');
+    }
+
+    public function getUserById(int $id): ?ActiveRow
+    {
+        return $this->database->table('users')->get($id);
     }
 }
 

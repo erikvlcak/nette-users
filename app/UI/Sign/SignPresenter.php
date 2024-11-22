@@ -37,7 +37,7 @@ final class SignPresenter extends Presenter
                 $identity = $this->usersFacade->authenticateUser($data->username, $data->password);
                 $this->getUser()->login($identity);
                 $this->flashMessage("Current user: $data->username", 'success');
-                $this->redirect('List:');
+                $this->redirect('List:show');
             } catch (Nette\Security\AuthenticationException) {
                 $form->addError('The username or password you entered is incorrect.');
             }
@@ -76,7 +76,7 @@ final class SignPresenter extends Presenter
             try {
                 $this->usersFacade->add($data->fullname, $data->username, $data->email, $data->password);
                 $this->flashMessage("Current user: $data->username", 'success');
-                $this->redirect('List:');
+                $this->redirect('List:show');
             } catch (DuplicateNameException) {
                 $form->addError('Username or email are already taken.');
             }
