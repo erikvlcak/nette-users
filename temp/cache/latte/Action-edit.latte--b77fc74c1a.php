@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Latte\Runtime as LR;
 
-/** source: C:\web\BE\nette-users\app\UI\Sign/up.latte */
-final class Template_b14997409e extends Latte\Runtime\Template
+/** source: C:\web\BE\nette-users\app\UI\Action/edit.latte */
+final class Template_b77fc74c1a extends Latte\Runtime\Template
 {
-	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Sign/up.latte';
+	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Action/edit.latte';
 
 	public const Blocks = [
 		['content' => 'blockContent', 'title' => 'blockTitle'],
@@ -37,24 +37,27 @@ final class Template_b14997409e extends Latte\Runtime\Template
 		echo "\n";
 		$this->renderBlock('title', get_defined_vars()) /* line 3 */;
 		echo '
-<h3>Create a new account in order to view stored data.</h3>
+<h3>Update data about ';
+		echo LR\Filters::escapeHtmlText($selectedUser) /* line 5 */;
+		echo '</h3>
 
 ';
-		$ʟ_tmp = $this->global->uiControl->getComponent('signUpForm');
+		$ʟ_tmp = $this->global->uiControl->getComponent('addUserForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
 		$ʟ_tmp->render() /* line 7 */;
 
 		echo '
-<p class="text-center">Do you already have an account? <button><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 9 */;
-		echo '">Log in!</a></button></p>';
+<button><a href="';
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('List:show')) /* line 9 */;
+		echo '">Cancel</a></button>
+';
 	}
 
 
 	/** n:block="title" on line 3 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '<h1>Sign Up</h1>
+		echo '<h1>Edit user</h1>
 ';
 	}
 }

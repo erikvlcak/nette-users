@@ -85,7 +85,7 @@ final class ActionPresenter extends Presenter
     {
         $deletedUser = $this->usersFacade->getUserById($id);
         $this->usersFacade->deleteUser($id);
-        $this->flashMessage("User $deletedUser->username been deleted.", 'success');
+        $this->flashMessage("User $deletedUser->username has been deleted.", 'success');
         $this->redirect('List:show');
     }
 }
