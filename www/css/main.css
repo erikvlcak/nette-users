@@ -1,0 +1,67 @@
+* {
+  outline: 1px solid red;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  background-color: pink;
+}
+
+.container {
+  background-color: aqua;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn-primary {
+  color: white;
+  margin: 0.5rem auto;
+  display: block;
+  padding: 0.5rem 3rem;
+  background-color: black;
+  border: none;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: rgb(40, 40, 40);
+}
+
+.custom-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 5rem;
+  border-radius: 10px;
+  background-color: #ededed;
+  outline: 2px solid black;
+}
+
+label {
+  display: block;
+  margin: 0.5rem;
+  color: black;
+}
+
+.form-control {
+  margin: 0.5rem auto;
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: ivory;
+}
