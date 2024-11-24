@@ -41,7 +41,7 @@ database:
 	user: root
 	password: ''
 ```
-Then, create the `users` table using SQL statement in the `data/mysql.sql` file, located in `database` folder.
+Then, create the `users` table using SQL statement in the `database/mysql.sql` file.
 
 
 Web Server Setup
