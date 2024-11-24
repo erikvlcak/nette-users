@@ -10,7 +10,7 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
 	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Sign/in.latte';
 
 	public const Blocks = [
-		['styles' => 'blockStyles', 'content' => 'blockContent', 'title' => 'blockTitle'],
+		['content' => 'blockContent', 'title' => 'blockTitle'],
 	];
 
 
@@ -23,30 +23,18 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
 			return;
 		}
 
-		$this->renderBlock('styles', get_defined_vars()) /* line 1 */;
-		echo ' ';
-		$this->renderBlock('content', get_defined_vars()) /* line 3 */;
+		$this->renderBlock('content', get_defined_vars()) /* line 1 */;
 	}
 
 
-	/** {block styles} on line 1 */
-	public function blockStyles(array $ʟ_args): void
-	{
-		echo '<link rel="stylesheet" href="/css/sign.css" />
-';
-	}
-
-
-	/** {block content} on line 3 */
+	/** {block content} on line 1 */
 	public function blockContent(array $ʟ_args): void
 	{
 		extract($this->params);
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '
-
-<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-3">
+		echo '<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-3">
   <div class="row">
     <h1 class="text-center mx-auto col-auto col-md-8">Welcome to Users Database</h1>
   </div>
@@ -59,7 +47,7 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
     <div class="col-auto col-md-7 text-center mx-auto">
       <h3>
 ';
-		$this->renderBlock('title', get_defined_vars()) /* line 17 */;
+		$this->renderBlock('title', get_defined_vars()) /* line 14 */;
 		echo ' to enter the most comprehensive database you have ever seen. Enjoy your
         visit!
       </h3>
@@ -69,7 +57,7 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
     <div class="custom-form shadow">';
 		$ʟ_tmp = $this->global->uiControl->getComponent('signInForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 23 */;
+		$ʟ_tmp->render() /* line 20 */;
 
 		echo '</div>
   </div>
@@ -77,7 +65,7 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
     <p class="col-12 col-md-6 text-center mx-auto">
       Not registered yet?
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('up')) /* line 28 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('up')) /* line 25 */;
 		echo '" class="btn btn-secondary"> Sign Up! </a>
     </p>
   </div>
@@ -86,7 +74,7 @@ final class Template_f8d8152cc1 extends Latte\Runtime\Template
 	}
 
 
-	/** n:block="title" on line 17 */
+	/** n:block="title" on line 14 */
 	public function blockTitle(array $ʟ_args): void
 	{
 		echo '        <span>Sign in</span>';
