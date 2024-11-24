@@ -38,11 +38,11 @@ Configure access to MySQL database in the `config/local.neon` file:
 
 ```
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=***'
+	dsn: 'mysql:host=127.0.0.1;dbname=some-name'
 	user: root
 	password: ''
 ```
-Then, create the `users` table using SQL statement in the data/mysql.sql file, located in database folder.
+Then, create the `users` table using SQL statement in the `data/mysql.sql` file, located in database folder.
 
 
 Web Server Setup
