@@ -1,4 +1,4 @@
-Users Database in Nette
+Users Database in Nette Framework + Bootstrap CSS
 =================
 
 Project aimed at basic opeations with database.
