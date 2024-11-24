@@ -7,7 +7,7 @@ use App\UI\Accessory\RequireLogin;
 use App\Model\UsersFacade;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
-use Nette\Security\SimpleIdentity;
+use Nette\Database\UniqueConstraintViolationException;
 
 
 
@@ -56,33 +56,23 @@ final class DataPresenter extends Presenter
 
             $id = $this->getParameter('id');
 
-            if ($id) {
-                $this->usersFacade->updateUser($id, $data);
-                $this->refreshIdentity($id);
-                $this->flashMessage("User successfully updated.", 'success');
-            } else {
-                $this->usersFacade->add($data['fullname'], $data['username'], $data['email'], $data['password']);
-                $this->flashMessage("New user successfully added to the database.", 'success');
+            try {
+                if ($id) {
+                    $this->usersFacade->updateUser($id, (array) $data);
+                    $this->flashMessage("User successfully updated.", 'success');
+                } else {
+                    $this->usersFacade->add($data['fullname'], $data['username'], $data['email'], $data['password']);
+                    $this->flashMessage("New user successfully added to the database.", 'success');
+                }
+                $this->redirect('List:show');
+            } catch (UniqueConstraintViolationException $e) {
+                $this->flashMessage("Username or email already exists. Please choose a different one.", 'danger');
             }
-
-            $this->redirect('List:show');
         };
 
         return $form;
     }
 
-    private function refreshIdentity(int $id): void
-    {
-        $user = $this->usersFacade->getUserById($id);
-        if ($user) {
-            $identity = new SimpleIdentity(
-                $user->id,
-                $this->getUser()->getRoles(),
-                $user->toArray()
-            );
-            $this->getUser()->login($identity);
-        }
-    }
 
     public function renderEdit(?int $id): void
     {
@@ -98,7 +88,6 @@ final class DataPresenter extends Presenter
             if ($form instanceof Form) {
                 $form->setDefaults($editedUser->toArray());
             }
-
             $this->template->selectedUser = $editedUser->username;
         } else {
             $this->template->selectedUser = null;

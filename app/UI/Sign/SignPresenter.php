@@ -22,8 +22,6 @@ final class SignPresenter extends Presenter
     protected function createComponentSignInForm(): Form
     {
 
-
-
         $form = new Form;
 
         $form->addText('username', 'Username:')

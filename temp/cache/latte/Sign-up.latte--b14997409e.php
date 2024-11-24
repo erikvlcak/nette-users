@@ -52,7 +52,7 @@ final class Template_b14997409e extends Latte\Runtime\Template
 		$this->renderBlock('title', get_defined_vars()) /* line 7 */;
 		echo '    </div>
   </div>
-  <div class="row align-items-center">
+  <div class="row">
     <div class="col text-center">
       <img src="/img/register.jpg" alt="logo" class="img-register img-fluid" />
     </div>

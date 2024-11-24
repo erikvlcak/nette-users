@@ -45,7 +45,7 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
 		unset($ʟ_args);
 
 		echo '
-<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
+<div class="container flex-grow-1 d-flex flex-column justify-content-between lign-items-stretch gap-3">
   <div class="row">
     <div class="col text-center my-2">
       <h1>';
@@ -70,25 +70,22 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
 		echo '</strong></h3>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="table table-responsive w-100 mx-auto">';
+  <div class="row d-flex justify-content-center">
+    <div class="table table-responsive w-100 mx-auto">';
 		$ʟ_tmp = $this->global->uiControl->getComponent('simpleGrid');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 25 */;
+		$ʟ_tmp->render() /* line 24 */;
 
 		echo '</div>
-    </div>
-  </div>
-  <div class="row d-flex justify-content-center">
+
     <p class="col-6">
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Data:edit')) /* line 30 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Data:edit')) /* line 27 */;
 		echo '" class="btn btn-success btn-addNewUser"> Add new user </a>
     </p>
     <p class="col-3">
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 33 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 30 */;
 		echo '" class="btn btn-secondary"> Sign out </a>
     </p>
   </div>

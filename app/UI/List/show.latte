@@ -1,7 +1,7 @@
 {block styles}
 <link rel="stylesheet" href="/css/list.css" />
 {/block} {block content}
-<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
+<div class="container flex-grow-1 d-flex flex-column justify-content-between lign-items-stretch gap-3">
   <div class="row">
     <div class="col text-center my-2">
       <h1><span n:block="title">Database</span> of users</h1>
@@ -20,12 +20,9 @@
       <h3>Users in total: <strong>{$numberOfUsers}</strong></h3>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="table table-responsive w-100 mx-auto">{control simpleGrid}</div>
-    </div>
-  </div>
   <div class="row d-flex justify-content-center">
+    <div class="table table-responsive w-100 mx-auto">{control simpleGrid}</div>
+
     <p class="col-6">
       <a n:href="Data:edit" class="btn btn-success btn-addNewUser"> Add new user </a>
     </p>

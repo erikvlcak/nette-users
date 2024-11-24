@@ -28,7 +28,8 @@ final class ListPresenter extends Presenter
     {
         parent::beforeRender();
         $identity = $this->getUser()->getIdentity();
-        $this->template->currentUser = $identity->username;
+        $currentUser = $this->usersFacade->getUserById($identity->id);
+        $this->template->currentUser = $currentUser->username;
         $this->template->numberOfUsers = count($this->usersFacade->getUsers());
     }
 
