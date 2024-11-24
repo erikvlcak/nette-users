@@ -4,8 +4,12 @@ Users Database in Nette
 Project aimed at basic opeations with database.
 
 Core features:
-- Registration, login with authentication and logout
-- Model UsersFacade encapsulating the business logic related to user management and provide a clean API for interacting with the users table in the database
+- Registration, login and logout of users via forms utilizing Nette form verification.
+- Authentication of users for login purpose. 
+- Utilization of `SimpleIdentity` to display the currently signed-in user and prevention from deleting signed-in user.
+- Use od `RequireLogin` trait to ensures that certain actions or presenters can only be accessed by logged-in users. If a user is not logged in, they are redirected to the sign-in page.
+- Prevention of multiple database entries with identical data.
+- Model `UsersFacade` encapsulating the business logic related to user management and provide a clean API for interacting with the users table in the database.
 - Use of [Contributte Datagrid](https://contributte.org/packages/contributte/datagrid/#composer) for visualization of data stored in the database.
 - Authenticated users have the ability to modify the database (add, edit and delete entries).
 - Responsive design utilizing Bootstrap CSS framework.
