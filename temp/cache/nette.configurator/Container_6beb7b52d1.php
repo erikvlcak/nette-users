@@ -87,7 +87,7 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 		],
 		'Nette\ComponentModel\IContainer' => [2 => ['application.1', 'application.2', 'application.4', 'application.5']],
 		'Nette\ComponentModel\IComponent' => [2 => ['application.1', 'application.2', 'application.4', 'application.5']],
-		'App\UI\Action\ActionPresenter' => [2 => ['application.1']],
+		'App\UI\Data\DataPresenter' => [2 => ['application.1']],
 		'App\UI\Error\Error4xx\Error4xxPresenter' => [2 => ['application.2']],
 		'App\UI\Error\Error5xx\Error5xxPresenter' => [2 => ['application.3']],
 		'App\UI\List\ListPresenter' => [2 => ['application.4']],
@@ -118,9 +118,9 @@ class Container_6beb7b52d1 extends Nette\DI\Container
 	}
 
 
-	public function createServiceApplication__1(): App\UI\Action\ActionPresenter
+	public function createServiceApplication__1(): App\UI\Data\DataPresenter
 	{
-		$service = new App\UI\Action\ActionPresenter($this->getService('02'));
+		$service = new App\UI\Data\DataPresenter($this->getService('02'));
 		$service->injectPrimary(
 			$this->getService('http.request'),
 			$this->getService('http.response'),

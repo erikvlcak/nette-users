@@ -83,7 +83,7 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
   <div class="row d-flex justify-content-center">
     <p class="col-6">
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Action:create')) /* line 30 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Data:edit')) /* line 30 */;
 		echo '" class="btn btn-success btn-addNewUser"> Add new user </a>
     </p>
     <p class="col-3">

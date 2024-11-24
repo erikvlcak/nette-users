@@ -27,7 +27,8 @@ final class ListPresenter extends Presenter
     protected function beforeRender(): void
     {
         parent::beforeRender();
-        $this->template->currentUser = $this->getUser()->getIdentity()->username;
+        $identity = $this->getUser()->getIdentity();
+        $this->template->currentUser = $identity->username;
         $this->template->numberOfUsers = count($this->usersFacade->getUsers());
     }
 
@@ -56,9 +57,9 @@ final class ListPresenter extends Presenter
         $grid->addColumnText('email', 'E-mail', 'email')->setAlign('center')
             ->setSortable();
 
-        $grid->addAction('edit', 'Edit user', 'Action:edit $id=>null')->setClass('btn btn-warning btn-sm');
+        $grid->addAction('edit', 'Edit user', 'Data:edit')->setClass('btn btn-warning btn-sm');
 
-        $grid->addAction('delete', 'Delete user', 'Action:delete')->setClass('btn btn-danger btn-sm');
+        $grid->addAction('delete', 'Delete user', 'Data:delete')->setClass('btn btn-danger btn-sm');
 
         return $grid;
     }

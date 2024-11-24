@@ -1,16 +1,17 @@
 <?php
 
-namespace App\UI\Action;
+namespace App\UI\Data;
 
 use App\UI\Accessory\RequireLogin;
 
 use App\Model\UsersFacade;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
+use Nette\Security\SimpleIdentity;
 
 
 
-final class ActionPresenter extends Presenter
+final class DataPresenter extends Presenter
 {
 
     use RequireLogin;
@@ -57,6 +58,7 @@ final class ActionPresenter extends Presenter
 
             if ($id) {
                 $this->usersFacade->updateUser($id, $data);
+                $this->refreshIdentity($id);
                 $this->flashMessage("User successfully updated.", 'success');
             } else {
                 $this->usersFacade->add($data['fullname'], $data['username'], $data['email'], $data['password']);
@@ -69,21 +71,38 @@ final class ActionPresenter extends Presenter
         return $form;
     }
 
-    public function renderEdit(int $id): void
+    private function refreshIdentity(int $id): void
     {
-        $editedUser = $this->usersFacade->getUserById($id);
+        $user = $this->usersFacade->getUserById($id);
+        if ($user) {
+            $identity = new SimpleIdentity(
+                $user->id,
+                $this->getUser()->getRoles(),
+                $user->toArray()
+            );
+            $this->getUser()->login($identity);
+        }
+    }
 
-        if (!$editedUser) {
+    public function renderEdit(?int $id): void
+    {
+
+        if ($id) {
+            $editedUser = $this->usersFacade->getUserById($id);
+
+            if (!$editedUser) {
+                $this->error('User not found.');
+            }
+
+            $form = $this->getComponent('addUserForm');
+            if ($form instanceof Form) {
+                $form->setDefaults($editedUser->toArray());
+            }
+
+            $this->template->selectedUser = $editedUser->username;
+        } else {
             $this->template->selectedUser = null;
         }
-
-        $form = $this->getComponent('addUserForm');
-        if ($form instanceof Form) {
-            $form->setDefaults($editedUser->toArray());
-        }
-
-        $this->template->selectedUser = $editedUser->username;
-        $this->template->selectedUserId = $editedUser->id;
     }
 
     public function renderDelete(int $id): void

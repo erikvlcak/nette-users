@@ -49,11 +49,11 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 		echo '
   </head>
 
-  <body class="d-flex flex-column h-100">
-    <div class="container mt-3">
+  <body class="d-flex flex-column h-100 position-relative">
+    <div class="container position-absolute w-100 d-flex align-items-center justify-content-center">
 ';
 		foreach ($flashes as $flash) /* line 19 */ {
-			echo '      <div class="alert alert-';
+			echo '      <div class="alert mx-auto w-100 alert-';
 			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 20 */;
 			echo ' alert-dismissible fade show" role="alert">
         ';

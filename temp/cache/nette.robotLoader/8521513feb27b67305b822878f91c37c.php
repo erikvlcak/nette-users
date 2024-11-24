@@ -32,10 +32,10 @@ return array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Accessory\\RequireLogin.php',
       1 => 1732231129,
     ),
-    'App\\UI\\Action\\ActionPresenter' => 
+    'App\\UI\\Data\\DataPresenter' => 
     array (
-      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Action\\ActionPresenter.php',
-      1 => 1732317742,
+      0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Data\\DataPresenter.php',
+      1 => 1732413671,
     ),
     'App\\UI\\Error\\Error4xx\\Error4xxPresenter' => 
     array (
@@ -50,7 +50,7 @@ return array (
     'App\\UI\\List\\ListPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php',
-      1 => 1732390021,
+      1 => 1732413465,
     ),
     'App\\UI\\Sign\\SignPresenter' => 
     array (
@@ -102,6 +102,12 @@ return array (
     'App\\UI\\Home\\HomePresenter' => 2,
     'App\\UI\\Action\\ActionShowTemplate' => 2,
     'App\\UI\\List\\StringConfirmation' => 1,
+    'App\\UI\\Action\\ActionPresenter' => 3,
+    'App\\UI\\Database\\DatabaseEditTemplate' => 3,
+    'App\\UI\\Database\\DatabaseTemplate' => 3,
+    'App\\UI\\Database\\DatabasePresenter' => 2,
+    'App\\UI\\Data\\DataEditTemplate' => 3,
+    'App\\UI\\Data\\DataTemplate' => 3,
   ),
   2 => 
   array (

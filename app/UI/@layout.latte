@@ -14,10 +14,10 @@
     {block styles} {/block}
   </head>
 
-  <body class="d-flex flex-column h-100">
-    <div class="container mt-3">
+  <body class="d-flex flex-column h-100 position-relative">
+    <div class="container position-absolute w-100 d-flex align-items-center justify-content-center">
       {foreach $flashes as $flash}
-      <div class="alert alert-{$flash->type} alert-dismissible fade show" role="alert">
+      <div class="alert mx-auto w-100 alert-{$flash->type} alert-dismissible fade show" role="alert">
         {$flash->message}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
