@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-use Nette\Security\IIdentity;
-
-
 use Nette;
+use Nette\Security\IIdentity;
 use Nette\Database\Table\ActiveRow;
 use Nette\Database\Table\Selection;
 use Nette\Security\Passwords;
@@ -18,6 +16,7 @@ final class UsersFacade implements Nette\Security\Authenticator
         private Nette\Database\Explorer $database,
         private Passwords $passwords,
     ) {}
+
 
     public function authenticate(array $credentials): Nette\Security\IIdentity
     {
@@ -35,6 +34,7 @@ final class UsersFacade implements Nette\Security\Authenticator
         return new Nette\Security\SimpleIdentity($row['id'], ['role'], $arr);
     }
 
+
     public function add(string $fullname, string $username, string $email, string $password): void
     {
         Nette\Utils\Validators::assert($email, 'email');
@@ -51,30 +51,36 @@ final class UsersFacade implements Nette\Security\Authenticator
         }
     }
 
+
     public function authenticateUser(string $username, string $password): IIdentity
     {
         return $this->authenticate([$username, $password]);
     }
 
-    public function updateUser(int $id, array $data)
+
+    public function updateUser(int $id, array $data): void
     {
         $this->database->table('users')->where('id', $id)->update($data);
     }
 
-    public function deleteUser(int $id)
+
+    public function deleteUser(int $id): void
     {
         $this->database->table('users')->where('id', $id)->delete();
     }
+
 
     public function getUsers(): Selection
     {
         return $this->database->table('users');
     }
 
+
     public function getUserById(int $id): ?ActiveRow
     {
         return $this->database->table('users')->get($id);
     }
 }
+
 
 class DuplicateNameException extends \Exception {}

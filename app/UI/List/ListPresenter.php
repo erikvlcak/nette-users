@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace App\UI\List;
 
-use AllowDynamicProperties;
 use App\Model\UsersFacade;
 use App\UI\Accessory\RequireLogin;
 use Ublaboo\DataGrid\DataGrid;
 use Nette\Application\UI\Presenter;
-
-
-
-
 
 final class ListPresenter extends Presenter
 {
@@ -35,9 +30,6 @@ final class ListPresenter extends Presenter
 
     protected function createComponentSimpleGrid(): DataGrid
     {
-
-
-
         $grid = new DataGrid();
 
         $grid->setDataSource($this->usersFacade->getUsers());
@@ -50,10 +42,8 @@ final class ListPresenter extends Presenter
         $grid->addColumnText('fullname', 'Full name', 'fullname')->setAlign('center')
             ->setSortable();
 
-
         $grid->addColumnText('username', 'Username', 'username')->setAlign('center')
             ->setSortable();
-
 
         $grid->addColumnText('email', 'E-mail', 'email')->setAlign('center')
             ->setSortable();
