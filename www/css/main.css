@@ -1,0 +1,82 @@
+html {
+  height: 100vh;
+}
+
+.btn {
+  width: 100%;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+.container {
+  background-color: white;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btn-primary {
+  color: white;
+  margin: 0.5rem auto 0 auto;
+  display: block;
+  padding: 0.5rem 3rem;
+  background-color: black;
+  border: none;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: rgb(40, 40, 40);
+}
+
+.btn-secondary {
+  margin: 0.5rem auto;
+  display: block;
+  padding: 0.5rem 3rem;
+  background-color: rgb(60, 60, 60);
+  border: none;
+  width: 100%;
+}
+
+.custom-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ededed;
+  outline: 2px solid black;
+  overflow: scroll;
+}
+
+label {
+  display: block;
+  margin: 0.5rem;
+  color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.form-control {
+  margin: 2rem auto;
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: ivory;
+}

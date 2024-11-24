@@ -1,0 +1,41 @@
+{block styles}
+<link rel="stylesheet" href="/css/data.css" />
+{/block} {block content}
+
+<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-1">
+  <div class="row">
+    <div class="col text-center">
+      {if (isset($selectedUser))}
+      <h1>Update existing user</h1>
+      {else}
+      <h1>Add new user to the database</h1>
+      {/if}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-3 text-center mx-auto">
+      {if (isset($selectedUser))}
+      <img src="/img/change.jpg" alt="logo" class="img-change img-fluid" />
+      {else}
+      <img src="/img/newUser.jpg" alt="logo" class="img-newUser img-fluid" />
+      {/if}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center"></div>
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center text-center">
+    {if (isset($selectedUser))}
+    <h3>Update information about <strong>{$selectedUser}</strong>.</h3>
+    {else}
+    <h3>Put new unique user into the database.</h3>
+    {/if}
+
+    <div class="custom-form shadow">{control addUserForm}</div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+      <a n:href="List:show" class="btn btn-secondary">Cancel</a>
+    </div>
+  </div>
+</div>
