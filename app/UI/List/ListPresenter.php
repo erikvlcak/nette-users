@@ -11,7 +11,8 @@ use Ublaboo\DataGrid\DataGrid;
 use Nette\Application\UI\Presenter;
 
 
-#[AllowDynamicProperties]
+
+
 
 final class ListPresenter extends Presenter
 {
@@ -26,12 +27,13 @@ final class ListPresenter extends Presenter
     protected function beforeRender(): void
     {
         parent::beforeRender();
-        $identity = $this->getUser()->getIdentity();
-        $this->template->currentUser = $identity->username;
+        $this->template->currentUser = $this->getUser()->getIdentity()->username;
+        $this->template->numberOfUsers = count($this->usersFacade->getUsers());
     }
 
     protected function createComponentSimpleGrid(): DataGrid
     {
+
 
 
         $grid = new DataGrid();
@@ -40,25 +42,23 @@ final class ListPresenter extends Presenter
 
         $grid->setPagination(false);
 
-        $grid->addColumnText('id', 'Id')->setAlign('center')
+        $grid->addColumnText('id', 'Id', 'id')->setAlign('center')
             ->setSortable();
 
-        $grid->addColumnText('fullname', 'Name')->setAlign('center')
-            ->setSortable();
-
-
-        $grid->addColumnText('username', 'Username')->setAlign('center')
+        $grid->addColumnText('fullname', 'Name', 'fullname')->setAlign('center')
             ->setSortable();
 
 
-        $grid->addColumnText('email', 'E-mail')->setAlign('center')
+        $grid->addColumnText('username', 'Username', 'username')->setAlign('center')
             ->setSortable();
 
 
-        $grid->addAction('edit', 'Edit user', 'Action:edit');
+        $grid->addColumnText('email', 'E-mail', 'email')->setAlign('center')
+            ->setSortable();
 
+        $grid->addAction('edit', 'Edit user', 'Action:edit $id=>null')->setClass('btn btn-warning btn-sm');
 
-        $grid->addAction('delete', 'Delete user', 'Action:delete');
+        $grid->addAction('delete', 'Delete user', 'Action:delete')->setClass('btn btn-danger btn-sm');
 
         return $grid;
     }

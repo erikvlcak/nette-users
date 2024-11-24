@@ -72,7 +72,7 @@ final class Template_b14997409e extends Latte\Runtime\Template
       Already have an account?
       <a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 23 */;
-		echo '" class="btn btn-primary"> Sign in! </a>
+		echo '" class="btn btn-secondary"> Sign In! </a>
     </p>
   </div>
 </div>
@@ -83,7 +83,7 @@ final class Template_b14997409e extends Latte\Runtime\Template
 	/** n:block="title" on line 7 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '      <h1>Sign Up</h1>
+		echo '      <h1>Register</h1>
 ';
 	}
 }

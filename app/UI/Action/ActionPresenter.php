@@ -27,25 +27,29 @@ final class ActionPresenter extends Presenter
 
         $form->addText('fullname', 'New full name:')
             ->setHtmlAttribute('placeholder', 'John Doe')
+            ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new full name.');
 
         $form->addText('username', 'New username:')
             ->setHtmlAttribute('placeholder', 'John Doe')
+            ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new username.')
             ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
 
         $form->addEmail('email', 'New email:')
             ->setHtmlAttribute('placeholder', 'johndoe@email.me')
+            ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
 
 
         $form->addPassword('password', 'New password:')
             ->setHtmlAttribute('placeholder', '11111')
-            ->setRequired('Please create a new password.')
+            ->setHtmlAttribute('class', 'form-control-lg')
+            ->setRequired('Please create new password.')
             ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
 
-        $form->addSubmit('save', 'Save user');
+        $form->addSubmit('save', 'Confirm')->setHtmlAttribute('class', 'btn btn-success btn-lg');
 
         $form->onSuccess[] = function (array $data): void {
 
@@ -70,7 +74,7 @@ final class ActionPresenter extends Presenter
         $editedUser = $this->usersFacade->getUserById($id);
 
         if (!$editedUser) {
-            $this->error('User not found.');
+            $this->template->selectedUser = null;
         }
 
         $form = $this->getComponent('addUserForm');
@@ -79,13 +83,20 @@ final class ActionPresenter extends Presenter
         }
 
         $this->template->selectedUser = $editedUser->username;
+        $this->template->selectedUserId = $editedUser->id;
     }
 
     public function renderDelete(int $id): void
     {
-        $deletedUser = $this->usersFacade->getUserById($id);
-        $this->usersFacade->deleteUser($id);
-        $this->flashMessage("User $deletedUser->username has been deleted.", 'success');
-        $this->redirect('List:show');
+
+        if ($id === $this->getUser()->getIdentity()->id) {
+            $this->flashMessage("Active user can not delete himself.", 'error');
+            $this->redirect('List:show');
+        } else {
+            $deletedUser = $this->usersFacade->getUserById($id);
+            $this->usersFacade->deleteUser($id);
+            $this->flashMessage("User $deletedUser->username has been deleted.", 'success');
+            $this->redirect('List:show');
+        }
     }
 }

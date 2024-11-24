@@ -1,13 +1,36 @@
 {block styles}
-<link rel="stylesheet" href="/css/list.css">
-{/block}
-
-{block content}
-<h1 n:block=title>List of users</h1>
-
-<h3>Current user: {$currentUser} </h3>
-
-{control simpleGrid}
-
-<button><a n:href="Action:create">Add new user</a></button>
-<button><a n:href="Sign:out">Sign out</a></button>
+<link rel="stylesheet" href="/css/list.css" />
+{/block} {block content}
+<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
+  <div class="row">
+    <div class="col text-center my-2">
+      <h1><span n:block="title">Database</span> of users</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <img src="/img/databases.jpg" alt="logo" class="img-databases img-fluid" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <h3>Active user: <strong>{$currentUser}</strong></h3>
+    </div>
+    <div class="col text-center">
+      <h3>Users in total: <strong>{$numberOfUsers}</strong></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="table table-responsive w-100 mx-auto">{control simpleGrid}</div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <p class="col-6">
+      <a n:href="Action:create" class="btn btn-success btn-addNewUser"> Add new user </a>
+    </p>
+    <p class="col-3">
+      <a n:href="Sign:out" class="btn btn-secondary"> Sign out </a>
+    </p>
+  </div>
+</div>

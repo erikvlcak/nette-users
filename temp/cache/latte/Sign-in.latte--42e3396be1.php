@@ -73,10 +73,10 @@ final class Template_42e3396be1 extends Latte\Runtime\Template
   </div>
   <div class="row">
     <p class="col-6 offset-3 text-center w-50">
-      Do not have an account yet?
+      Not registered yet?
       <a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('up')) /* line 26 */;
-		echo '" class="btn btn-primary"> Sign up! </a>
+		echo '" class="btn btn-secondary"> Sign Up! </a>
     </p>
   </div>
 </div>

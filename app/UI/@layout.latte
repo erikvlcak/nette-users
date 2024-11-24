@@ -15,7 +15,14 @@
   </head>
 
   <body class="d-flex flex-column h-100">
-    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    <div class="container mt-3">
+      {foreach $flashes as $flash}
+      <div class="alert alert-{$flash->type} alert-dismissible fade show" role="alert">
+        {$flash->message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {/foreach}
+    </div>
 
     <div class="container h-100">{include content}</div>
 

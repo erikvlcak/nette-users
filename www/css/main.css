@@ -1,17 +1,17 @@
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 html {
   height: 100vh;
 }
 
 body {
-  background-color: pink;
+  background-color: rgb(240, 240, 240);
 }
 
 .container {
-  background-color: aqua;
+  background-color: white;
 }
 
 h1,
@@ -23,6 +23,10 @@ a {
   padding: 0;
 }
 
+h1 {
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -30,7 +34,7 @@ a {
 
 .btn-primary {
   color: white;
-  margin: 0.5rem auto;
+  margin: 0.5rem auto 0 auto;
   display: block;
   padding: 0.5rem 3rem;
   background-color: black;
@@ -38,8 +42,17 @@ a {
   width: 100%;
 }
 
-.btn:hover {
+.btn-primary:hover {
   background-color: rgb(40, 40, 40);
+}
+
+.btn-secondary {
+  margin: 0.5rem auto;
+  display: block;
+  padding: 0.5rem 3rem;
+  background-color: rgb(60, 60, 60);
+  border: none;
+  width: 100%;
 }
 
 .custom-form {
@@ -55,13 +68,30 @@ label {
   display: block;
   margin: 0.5rem;
   color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
 .form-control {
-  margin: 0.5rem auto;
+  margin: 2rem auto;
   display: block;
   padding: 0.5rem 1rem;
   width: 100%;
   border: 2px solid rgb(0, 0, 0);
   background-color: ivory;
+}
+
+.flash {
+  margin-bottom: 1rem;
+}
+
+.flash.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.flash.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }

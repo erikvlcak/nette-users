@@ -50,24 +50,29 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
   </head>
 
   <body class="d-flex flex-column h-100">
+    <div class="container mt-3">
 ';
-		foreach ($flashes as $flash) /* line 18 */ {
-			echo '    <div';
-			echo ($ʟ_tmp = array_filter(['flash', $flash->type])) ? ' class="' . LR\Filters::escapeHtmlAttr(implode(" ", array_unique($ʟ_tmp))) . '"' : "" /* line 18 */;
-			echo '>';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 18 */;
-			echo '</div>
+		foreach ($flashes as $flash) /* line 19 */ {
+			echo '      <div class="alert alert-';
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 20 */;
+			echo ' alert-dismissible fade show" role="alert">
+        ';
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 21 */;
+			echo '
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
 ';
 
 		}
 
-		echo '
+		echo '    </div>
+
     <div class="container h-100">';
-		$this->renderBlock('content', [], 'html') /* line 20 */;
+		$this->renderBlock('content', [], 'html') /* line 27 */;
 		echo '</div>
 
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 22 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 29 */;
 		echo '  </body>
 </html>
 ';
@@ -79,7 +84,7 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '18'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '19'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -94,7 +99,7 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
 	}
 
 
-	/** {block scripts} on line 22 */
+	/** {block scripts} on line 29 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '    <script src="https://unpkg.com/nette-forms@3"></script>

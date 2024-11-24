@@ -34,21 +34,17 @@ final class Template_b77fc74c1a extends Latte\Runtime\Template
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo "\n";
+		echo '
+<h1>';
 		$this->renderBlock('title', get_defined_vars()) /* line 3 */;
-		echo '
-<h3>Update data about ';
-		echo LR\Filters::escapeHtmlText($selectedUser) /* line 5 */;
-		echo '</h3>
+		echo ' about ';
+		echo LR\Filters::escapeHtmlText($selectedUser) /* line 3 */;
+		echo ' with ';
+		echo LR\Filters::escapeHtmlText($selectedUserId) /* line 3 */;
+		echo '</h1>
 
-';
-		$ʟ_tmp = $this->global->uiControl->getComponent('addUserForm');
-		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 7 */;
-
-		echo '
 <button><a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('List:show')) /* line 9 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('List:show')) /* line 5 */;
 		echo '">Cancel</a></button>
 ';
 	}
@@ -57,7 +53,6 @@ final class Template_b77fc74c1a extends Latte\Runtime\Template
 	/** n:block="title" on line 3 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '<h1>Edit user</h1>
-';
+		echo '<span>Update data</span>';
 	}
 }
