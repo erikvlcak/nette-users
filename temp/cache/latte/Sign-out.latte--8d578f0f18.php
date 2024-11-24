@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Latte\Runtime as LR;
 
 /** source: C:\web\BE\nette-users\app\UI\Sign/out.latte */
-final class Template_40f2ae56e0 extends Latte\Runtime\Template
+final class Template_8d578f0f18 extends Latte\Runtime\Template
 {
 	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Sign/out.latte';
 
@@ -65,7 +65,7 @@ final class Template_40f2ae56e0 extends Latte\Runtime\Template
 ';
 		$this->renderBlock('title', get_defined_vars()) /* line 19 */;
 		echo ' We are looking forward to your next
-        visit. Have a great day!
+        visit.
       </h3>
     </div>
   </div>

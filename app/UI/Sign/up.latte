@@ -1,8 +1,9 @@
 {block styles}
 <link rel="stylesheet" href="/css/sign.css" />
 {/block} {block content}
+
 <div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-1">
-  <div class="row align-items-center">
+  <div class="row">
     <div class="col col-md-auto text-center mx-auto my-2">
       <h1><span n:block="title">Registration</span> of new user</h1>
     </div>
@@ -15,14 +16,13 @@
   <div class="row">
     <div class="col-auto col-md-7 mx-auto text-center row d-flex justify-content-center">
       <h3>Create a new account in order to view all data stored in the database. <strong>For free!</strong></h3>
-
       <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="custom-form shadow">{control signUpForm}</div>
       </div>
     </div>
   </div>
-  <div class="row mt-2">
-    <p class="col-6 offset-3 text-center w-50">
+  <div class="row">
+    <p class="col-12 col-md-6 text-center mx-auto">
       Already have an account?
       <a n:href="in" class="btn btn-secondary"> Sign In! </a>
     </p>

@@ -21,6 +21,7 @@ final class DataPresenter extends Presenter
         $this->usersFacade = $usersFacade;
     }
 
+
     protected function createComponentAddUserForm(): Form
     {
         $form = new Form;
@@ -38,7 +39,6 @@ final class DataPresenter extends Presenter
             ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
-
 
         $form->addPassword('password', 'New password:')
             ->setHtmlAttribute('class', 'form-control-lg')
@@ -71,14 +71,11 @@ final class DataPresenter extends Presenter
 
     public function renderEdit(?int $id): void
     {
-
         if ($id) {
             $editedUser = $this->usersFacade->getUserById($id);
-
             if (!$editedUser) {
                 $this->error('User not found.');
             }
-
             $form = $this->getComponent('addUserForm');
             if ($form instanceof Form) {
                 $form->setDefaults($editedUser->toArray());
@@ -89,9 +86,9 @@ final class DataPresenter extends Presenter
         }
     }
 
+
     public function renderDelete(int $id): void
     {
-
         if ($id === $this->getUser()->getIdentity()->id) {
             $this->flashMessage("Active user can not delete himself.", 'danger');
             $this->redirect('List:show');

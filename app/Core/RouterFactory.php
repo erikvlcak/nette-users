@@ -7,7 +7,6 @@ namespace App\Core;
 use Nette;
 use Nette\Application\Routers\RouteList;
 
-
 final class RouterFactory
 {
 	use Nette\StaticClass;

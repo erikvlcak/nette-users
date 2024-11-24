@@ -1,6 +1,6 @@
 {
   "name": "nette/users",
-  "description": "Simple user administration system",
+  "description": "Administration of users in simple database",
   "keywords": [
     "nette"
   ],

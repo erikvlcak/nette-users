@@ -10,18 +10,13 @@ use Nette\Application\UI\Presenter;
 
 final class SignPresenter extends Presenter
 {
-
-
     public function __construct(
         private UsersFacade $usersFacade,
     ) {}
 
-
-
     //Sign IN
     protected function createComponentSignInForm(): Form
     {
-
         $form = new Form;
 
         $form->addText('username', 'Username:')
@@ -39,11 +34,12 @@ final class SignPresenter extends Presenter
                 $this->flashMessage("You are now logged in. Welcome $data->username!", 'success');
                 $this->redirect('List:show');
             } catch (Nette\Security\AuthenticationException) {
-                $form->addError('The username or password you entered is incorrect.');
+                $this->flashMessage('The username or password you entered is incorrect.', 'danger');
             }
         };
         return $form;
     }
+
 
     //Sign UP
     protected function createComponentSignUpForm(): Form
@@ -67,7 +63,6 @@ final class SignPresenter extends Presenter
             ->setRequired('Please enter your email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
 
-
         $form->addPassword('password', 'Password:')
             ->setHtmlAttribute('placeholder', '12345')
             ->setHtmlAttribute('class', 'form-control-lg')
@@ -88,6 +83,7 @@ final class SignPresenter extends Presenter
 
         return $form;
     }
+
 
     //Log OUT
     public function renderOut($currentUser): void
