@@ -1,16 +1,14 @@
-Nette Web Project
+Users Database in Nette
 =================
 
-Welcome to the Nette Web Project! This is a basic skeleton application built using
-[Nette](https://nette.org), ideal for kick-starting your new web projects.
+Project aimed at basic opeations with database.
 
-Nette is a renowned PHP web development framework, celebrated for its user-friendliness,
-robust security, and outstanding performance. It's among the safest choices
-for PHP frameworks out there.
-
-If Nette helps you, consider supporting it by [making a donation](https://nette.org/donate).
-Thank you for your generosity!
-
+Core features:
+- Registration, login with authentication and logout
+- Model UsersFacade encapsulating the business logic related to user management and provide a clean API for interacting with the users table in the database
+- Use of [Contributte Datagrid](https://contributte.org/packages/contributte/datagrid/#composer) for visualization of data stored in the database.
+- Authenticated users have the ability to modify the database (add, edit and delete entries).
+- Responsive design utilizing Bootstrap CSS framework.
 
 Requirements
 ------------
@@ -24,10 +22,23 @@ Installation
 To install the Web Project, Composer is the recommended tool. If you're new to Composer,
 follow [these instructions](https://doc.nette.org/composer). Then, run:
 
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
+```
+git clone https://github.com/erikvlcak/nette-users
+cd nette-users
+composer install
+```
 
-Ensure the `temp/` and `log/` directories are writable.
+Database
+------------
+Configure access to MySQL database in the `config/local.neon` file:
+
+```
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=***'
+	user: root
+	password: ''
+```
+Then, create the `users` table using SQL statement in the data/mysql.sql file, located in database folder.
 
 
 Web Server Setup
@@ -44,9 +55,3 @@ For Apache or Nginx users, configure a virtual host pointing to your project's `
 **Important Note:** Ensure `app/`, `config/`, `log/`, and `temp/` directories are not web-accessible.
 Refer to [security warning](https://nette.org/security-warning) for more details.
 
-
-Minimal Skeleton
-----------------
-
-For demonstrating issues or similar tasks, rather than starting a new project, use
-this [minimal skeleton](https://github.com/nette/web-project/tree/minimal).
