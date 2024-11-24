@@ -35,7 +35,7 @@ return array (
     'App\\UI\\Data\\DataPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Data\\DataPresenter.php',
-      1 => 1732444946,
+      1 => 1732458421,
     ),
     'App\\UI\\Error\\Error4xx\\Error4xxPresenter' => 
     array (
@@ -50,12 +50,12 @@ return array (
     'App\\UI\\List\\ListPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\List\\ListPresenter.php',
-      1 => 1732444527,
+      1 => 1732457131,
     ),
     'App\\UI\\Sign\\SignPresenter' => 
     array (
       0 => 'C:\\web\\BE\\nette-users\\app\\UI\\Sign\\SignPresenter.php',
-      1 => 1732443149,
+      1 => 1732458972,
     ),
   ),
   1 => 
@@ -108,6 +108,7 @@ return array (
     'App\\UI\\Database\\DatabasePresenter' => 2,
     'App\\UI\\Data\\DataEditTemplate' => 3,
     'App\\UI\\Data\\DataTemplate' => 3,
+    'App\\UI\\Data\\DataDeleteTemplate' => 3,
   ),
   2 => 
   array (

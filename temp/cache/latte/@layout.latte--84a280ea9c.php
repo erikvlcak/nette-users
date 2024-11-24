@@ -50,7 +50,7 @@ final class Template_84a280ea9c extends Latte\Runtime\Template
   </head>
 
   <body class="d-flex flex-column h-100 position-relative">
-    <div class="container position-absolute w-100 d-flex align-items-center justify-content-center">
+    <div class="position-absolute w-100">
 ';
 		foreach ($flashes as $flash) /* line 19 */ {
 			echo '      <div class="alert mx-auto w-100 alert-';

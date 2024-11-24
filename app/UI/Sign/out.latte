@@ -1,6 +1,38 @@
-{block content}
-<h1 n:block=title>Sign out</h1>
+{block styles}
+<link rel="stylesheet" href="/css/sign.css" />
+{/block} {block content}
 
-<h3>You have been signed out. Thank you for your visit.</h3>
-
-<button><a n:href="in">Sign back again!</a></button>
+<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
+  <div class="row align-items-center">
+    <div class="col text-center my-2">
+      <h1>Goodbye {$currentUser}!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <img src="/img/logout.jpg" alt="logo" class="img-logout img-fluid w-75" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-9 text-center mx-auto">
+      <h3>
+        <span n:block="title"><strong>You have been signed out.</strong></span> We are looking forward to your next
+        visit. Have a great day!
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-7 text-center mx-auto">
+      <p>
+        We hope your time on this page has been enjoyable and free of pesky bugs. If you’d like to share any feedback,
+        please don’t hesitate to reach out to the database administrator directly. Thanks!
+      </p>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <p class="col-12 col-md-6 mx-auto text-center">
+      Signed out by accident?
+      <a n:href="in" class="btn btn-secondary">Sign back again!</a>
+    </p>
+  </div>
+</div>

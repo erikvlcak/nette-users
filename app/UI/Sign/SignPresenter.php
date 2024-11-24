@@ -82,7 +82,7 @@ final class SignPresenter extends Presenter
                 $this->flashMessage("Registration successfull, please sign in.", 'success');
                 $this->redirect('List:show');
             } catch (DuplicateNameException) {
-                $form->addError('Username or email are already taken.');
+                $this->flashMessage('Username or email are already taken.', 'danger');
             }
         };
 
@@ -90,8 +90,9 @@ final class SignPresenter extends Presenter
     }
 
     //Log OUT
-    public function actionOut(): void
+    public function renderOut($currentUser): void
     {
         $this->getUser()->logout();
+        $this->template->currentUser = $currentUser;
     }
 }

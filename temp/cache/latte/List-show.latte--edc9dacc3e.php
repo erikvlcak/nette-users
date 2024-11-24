@@ -45,7 +45,7 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
 		unset($ʟ_args);
 
 		echo '
-<div class="container flex-grow-1 d-flex flex-column justify-content-between lign-items-stretch gap-3">
+<div class="container flex-grow-1 d-flex flex-column justify-content-center lign-items-stretch">
   <div class="row">
     <div class="col text-center my-2">
       <h1>';
@@ -54,39 +54,38 @@ final class Template_edc9dacc3e extends Latte\Runtime\Template
     </div>
   </div>
   <div class="row">
-    <div class="col text-center">
-      <img src="/img/databases.jpg" alt="logo" class="img-databases img-fluid" />
+    <div class="col col-md-6 text-center mx-auto">
+      <img src="/img/databases.jpg" alt="logo" class="img-fluid w-100" />
     </div>
   </div>
-  <div class="row">
-    <div class="col text-center">
+  <div class="row gap-3 gap-md-0">
+    <div class="col-12 col-md-6 text-center">
       <h3>Active user: <strong>';
 		echo LR\Filters::escapeHtmlText($currentUser) /* line 17 */;
 		echo '</strong></h3>
     </div>
-    <div class="col text-center">
+    <div class="col-12 col-md-6 text-center">
       <h3>Users in total: <strong>';
 		echo LR\Filters::escapeHtmlText($numberOfUsers) /* line 20 */;
 		echo '</strong></h3>
     </div>
   </div>
-  <div class="row d-flex justify-content-center">
-    <div class="table table-responsive w-100 mx-auto">';
+  <div class="table table-responsive w-100 mx-auto">';
 		$ʟ_tmp = $this->global->uiControl->getComponent('simpleGrid');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 24 */;
+		$ʟ_tmp->render() /* line 23 */;
 
 		echo '</div>
-
-    <p class="col-6">
+  <div class="row d-flex flex-col justify-content-center">
+    <p class="col-12 col-md-6">
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Data:edit')) /* line 27 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Data:edit')) /* line 26 */;
 		echo '" class="btn btn-success btn-addNewUser"> Add new user </a>
     </p>
-    <p class="col-3">
+    <p class="col-12 col-md-3">
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out')) /* line 30 */;
-		echo '" class="btn btn-secondary"> Sign out </a>
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('Sign:out', ['currentUser' => $currentUser])) /* line 29 */;
+		echo '" class="btn btn-secondary"> Logout </a>
     </p>
   </div>
 </div>

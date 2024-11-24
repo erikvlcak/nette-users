@@ -3,7 +3,6 @@
 namespace App\UI\Data;
 
 use App\UI\Accessory\RequireLogin;
-
 use App\Model\UsersFacade;
 use Nette\Application\UI\Form;
 use Nette\Application\UI\Presenter;
@@ -27,25 +26,21 @@ final class DataPresenter extends Presenter
         $form = new Form;
 
         $form->addText('fullname', 'New full name:')
-            ->setHtmlAttribute('placeholder', 'John Doe')
             ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new full name.');
 
         $form->addText('username', 'New username:')
-            ->setHtmlAttribute('placeholder', 'John Doe')
             ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new username.')
             ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
 
         $form->addEmail('email', 'New email:')
-            ->setHtmlAttribute('placeholder', 'johndoe@email.me')
             ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please enter new email.')
             ->addRule($form::Email, 'Please enter a valid email address.');
 
 
         $form->addPassword('password', 'New password:')
-            ->setHtmlAttribute('placeholder', '11111')
             ->setHtmlAttribute('class', 'form-control-lg')
             ->setRequired('Please create new password.')
             ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
@@ -98,7 +93,7 @@ final class DataPresenter extends Presenter
     {
 
         if ($id === $this->getUser()->getIdentity()->id) {
-            $this->flashMessage("Active user can not delete himself.", 'error');
+            $this->flashMessage("Active user can not delete himself.", 'danger');
             $this->redirect('List:show');
         } else {
             $deletedUser = $this->usersFacade->getUserById($id);

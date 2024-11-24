@@ -1,21 +1,25 @@
 {block styles}
 <link rel="stylesheet" href="/css/sign.css" />
 {/block} {block content}
-<div class="container px-5 py-2">
+<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-1">
   <div class="row align-items-center">
-    <div class="col text-center my-2">
-      <h1 n:block="title">Register</h1>
+    <div class="col col-md-auto text-center mx-auto my-2">
+      <h1><span n:block="title">Registration</span> of new user</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col text-center">
-      <img src="/img/register.jpg" alt="logo" class="img-register img-fluid" />
+    <div class="col-6 col-md-3 text-center mx-auto">
+      <img src="/img/register.jpg" alt="logo" class="img-register w-50 img-fluid" />
     </div>
   </div>
+  <div class="row">
+    <div class="col-auto col-md-7 mx-auto text-center row d-flex justify-content-center">
+      <h3>Create a new account in order to view all data stored in the database. <strong>For free!</strong></h3>
 
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <p>Create a new account in order to view stored data.</p>
-    <div class="custom-form shadow">{control signUpForm}</div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="custom-form shadow">{control signUpForm}</div>
+      </div>
+    </div>
   </div>
   <div class="row mt-2">
     <p class="col-6 offset-3 text-center w-50">

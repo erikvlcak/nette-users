@@ -47,7 +47,7 @@ final class ListPresenter extends Presenter
         $grid->addColumnText('id', 'Id', 'id')->setAlign('center')
             ->setSortable();
 
-        $grid->addColumnText('fullname', 'Name', 'fullname')->setAlign('center')
+        $grid->addColumnText('fullname', 'Full name', 'fullname')->setAlign('center')
             ->setSortable();
 
 

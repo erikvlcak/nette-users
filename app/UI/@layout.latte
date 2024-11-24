@@ -15,7 +15,7 @@
   </head>
 
   <body class="d-flex flex-column h-100 position-relative">
-    <div class="container position-absolute w-100 d-flex align-items-center justify-content-center">
+    <div class="position-absolute w-100">
       {foreach $flashes as $flash}
       <div class="alert mx-auto w-100 alert-{$flash->type} alert-dismissible fade show" role="alert">
         {$flash->message}

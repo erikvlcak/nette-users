@@ -45,33 +45,38 @@ final class Template_b14997409e extends Latte\Runtime\Template
 		unset($ʟ_args);
 
 		echo '
-<div class="container px-5 py-2">
+<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-1">
   <div class="row align-items-center">
-    <div class="col text-center my-2">
-';
+    <div class="col col-md-auto text-center mx-auto my-2">
+      <h1>';
 		$this->renderBlock('title', get_defined_vars()) /* line 7 */;
-		echo '    </div>
-  </div>
-  <div class="row">
-    <div class="col text-center">
-      <img src="/img/register.jpg" alt="logo" class="img-register img-fluid" />
+		echo ' of new user</h1>
     </div>
   </div>
+  <div class="row">
+    <div class="col-6 col-md-3 text-center mx-auto">
+      <img src="/img/register.jpg" alt="logo" class="img-register w-50 img-fluid" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-auto col-md-7 mx-auto text-center row d-flex justify-content-center">
+      <h3>Create a new account in order to view all data stored in the database. <strong>For free!</strong></h3>
 
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <p>Create a new account in order to view stored data.</p>
-    <div class="custom-form shadow">';
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="custom-form shadow">';
 		$ʟ_tmp = $this->global->uiControl->getComponent('signUpForm');
 		if ($ʟ_tmp instanceof Nette\Application\UI\Renderable) $ʟ_tmp->redrawControl(null, false);
-		$ʟ_tmp->render() /* line 18 */;
+		$ʟ_tmp->render() /* line 20 */;
 
 		echo '</div>
+      </div>
+    </div>
   </div>
   <div class="row mt-2">
     <p class="col-6 offset-3 text-center w-50">
       Already have an account?
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 23 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 27 */;
 		echo '" class="btn btn-secondary"> Sign In! </a>
     </p>
   </div>
@@ -83,7 +88,6 @@ final class Template_b14997409e extends Latte\Runtime\Template
 	/** n:block="title" on line 7 */
 	public function blockTitle(array $ʟ_args): void
 	{
-		echo '      <h1>Register</h1>
-';
+		echo '<span>Registration</span>';
 	}
 }

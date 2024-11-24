@@ -51,9 +51,7 @@ final class Template_32ff407d24 extends Latte\Runtime\Template
     <div class="col text-center">
 ';
 		if (isset($selectedUser)) /* line 8 */ {
-			echo '      <h1>Update data about with ';
-			echo LR\Filters::escapeHtmlText($selectedUser) /* line 9 */;
-			echo '</h1>
+			echo '      <h1>Update existing user</h1>
 ';
 		} else /* line 10 */ {
 			echo '      <h1>Add new user to the database</h1>
@@ -62,7 +60,7 @@ final class Template_32ff407d24 extends Latte\Runtime\Template
 		echo '    </div>
   </div>
   <div class="row">
-    <div class="col col-md-9 mx-auto d-flex justify-content-center align-items-center">
+    <div class="col-6 col-md-3 text-center mx-auto">
 ';
 		if (isset($selectedUser)) /* line 17 */ {
 			echo '      <img src="/img/change.jpg" alt="logo" class="img-change img-fluid" />
@@ -76,13 +74,15 @@ final class Template_32ff407d24 extends Latte\Runtime\Template
   <div class="row">
     <div class="col text-center"></div>
   </div>
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center text-center">
 ';
 		if (isset($selectedUser)) /* line 28 */ {
-			echo '    <p>Update information in the form</p>
+			echo '    <h3>Update information about <strong>';
+			echo LR\Filters::escapeHtmlText($selectedUser) /* line 29 */;
+			echo '</strong>.</h3>
 ';
 		} else /* line 30 */ {
-			echo '    <p>Provide information about new user</p>
+			echo '    <h3>Put new unique user into the database.</h3>
 ';
 		}
 		echo '
@@ -94,7 +94,7 @@ final class Template_32ff407d24 extends Latte\Runtime\Template
 		echo '</div>
   </div>
   <div class="row">
-    <div class="col-6 offset-3 text-center w-50">
+    <div class="col-12 col-md-6 mx-auto">
       <a href="';
 		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('List:show')) /* line 38 */;
 		echo '" class="btn btn-secondary">Cancel</a>

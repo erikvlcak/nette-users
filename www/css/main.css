@@ -1,9 +1,9 @@
-/* * {
-  outline: 1px solid red;
-} */
-
 html {
   height: 100vh;
+}
+
+.btn {
+  width: 100%;
 }
 
 body {
@@ -58,10 +58,11 @@ a {
 .custom-form {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 1rem 5rem;
+  padding: 1rem;
   border-radius: 10px;
   background-color: #ededed;
   outline: 2px solid black;
+  overflow: scroll;
 }
 
 label {
@@ -78,20 +79,4 @@ label {
   width: 100%;
   border: 2px solid rgb(0, 0, 0);
   background-color: ivory;
-}
-
-.flash {
-  margin: 0 auto;
-}
-
-.flash.success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-}
-
-.flash.error {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
 }
