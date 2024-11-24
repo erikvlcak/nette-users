@@ -10,7 +10,7 @@ final class Template_8d578f0f18 extends Latte\Runtime\Template
 	public const Source = 'C:\\web\\BE\\nette-users\\app\\UI\\Sign/out.latte';
 
 	public const Blocks = [
-		['styles' => 'blockStyles', 'content' => 'blockContent', 'title' => 'blockTitle'],
+		['content' => 'blockContent', 'title' => 'blockTitle'],
 	];
 
 
@@ -23,34 +23,22 @@ final class Template_8d578f0f18 extends Latte\Runtime\Template
 			return;
 		}
 
-		$this->renderBlock('styles', get_defined_vars()) /* line 1 */;
-		echo ' ';
-		$this->renderBlock('content', get_defined_vars()) /* line 3 */;
+		$this->renderBlock('content', get_defined_vars()) /* line 1 */;
 	}
 
 
-	/** {block styles} on line 1 */
-	public function blockStyles(array $ʟ_args): void
-	{
-		echo '<link rel="stylesheet" href="/css/sign.css" />
-';
-	}
-
-
-	/** {block content} on line 3 */
+	/** {block content} on line 1 */
 	public function blockContent(array $ʟ_args): void
 	{
 		extract($this->params);
 		extract($ʟ_args);
 		unset($ʟ_args);
 
-		echo '
-
-<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
+		echo '<div class="container flex-grow-1 h-100 d-flex flex-column justify-content-center lign-items-stretch gap-5">
   <div class="row align-items-center">
     <div class="col text-center my-2">
       <h1>Goodbye ';
-		echo LR\Filters::escapeHtmlText($currentUser) /* line 8 */;
+		echo LR\Filters::escapeHtmlText($currentUser) /* line 5 */;
 		echo '!</h1>
     </div>
   </div>
@@ -63,7 +51,7 @@ final class Template_8d578f0f18 extends Latte\Runtime\Template
     <div class="col col-md-9 text-center mx-auto">
       <h3>
 ';
-		$this->renderBlock('title', get_defined_vars()) /* line 19 */;
+		$this->renderBlock('title', get_defined_vars()) /* line 16 */;
 		echo ' We are looking forward to your next
         visit.
       </h3>
@@ -81,7 +69,7 @@ final class Template_8d578f0f18 extends Latte\Runtime\Template
     <p class="col-12 col-md-6 mx-auto text-center">
       Signed out by accident?
       <a href="';
-		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 35 */;
+		echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link('in')) /* line 32 */;
 		echo '" class="btn btn-secondary">Sign back again!</a>
     </p>
   </div>
@@ -90,7 +78,7 @@ final class Template_8d578f0f18 extends Latte\Runtime\Template
 	}
 
 
-	/** n:block="title" on line 19 */
+	/** n:block="title" on line 16 */
 	public function blockTitle(array $ʟ_args): void
 	{
 		echo '        <span><strong>You have been signed out.</strong></span>';
