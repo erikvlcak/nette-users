@@ -9,6 +9,7 @@ use Nette\Security\IIdentity;
 use Nette\Database\Table\ActiveRow;
 use Nette\Database\Table\Selection;
 use Nette\Security\Passwords;
+use Nette\Application\UI\Form;
 
 final class UsersFacade implements Nette\Security\Authenticator
 {
@@ -30,27 +31,28 @@ final class UsersFacade implements Nette\Security\Authenticator
         }
 
         $arr = $row->toArray();
-        unset($arr['Password']);
+        unset($arr['password']);
         return new Nette\Security\SimpleIdentity($row['id'], ['role'], $arr);
     }
 
 
     public function add(string $fullname, string $username, string $email, string $password): void
     {
-        Nette\Utils\Validators::assert($email, 'email');
+        // Nette\Utils\Validators::assert($email, 'email');
 
-        try {
-            $this->database->table('users')->insert([
-                'fullname' => $fullname,
-                'username' => $username,
-                'email' => $email,
-                'password' => $this->passwords->hash($password),
-            ]);
-        } catch (Nette\Database\UniqueConstraintViolationException $e) {
-            throw new DuplicateNameException;
-        }
+        $this->database->table('users')->insert([
+            'fullname' => $fullname,
+            'username' => $username,
+            'email' => $email,
+            'password' => $this->passwords->hash($password),
+        ]);
     }
 
+
+    public function getUsers(): Selection
+    {
+        return $this->database->table('users');
+    }
 
     public function authenticateUser(string $username, string $password): IIdentity
     {
@@ -60,25 +62,60 @@ final class UsersFacade implements Nette\Security\Authenticator
 
     public function updateUser(int $id, array $data): void
     {
-        $this->database->table('users')->where('id', $id)->update($data);
+        $data['password'] = $this->passwords->hash($data['password']);
+        $this->getUsers()->where('id', $id)->update($data);
     }
 
 
     public function deleteUser(int $id): void
     {
-        $this->database->table('users')->where('id', $id)->delete();
-    }
-
-
-    public function getUsers(): Selection
-    {
-        return $this->database->table('users');
+        $this->getUsers()->where('id', $id)->delete();
     }
 
 
     public function getUserById(int $id): ?ActiveRow
     {
-        return $this->database->table('users')->get($id);
+        return $this->getUsers()->get($id);
+    }
+
+    public function getForm(?int $id): Form
+    {
+
+        $form = new Form;
+
+        $form->addText('fullname', 'New full name:')
+            ->setHtmlAttribute('class', 'form-control-lg')
+            ->setRequired('Please enter new full name.');
+
+        $form->addText('username', 'New username:')
+            ->setHtmlAttribute('class', 'form-control-lg')
+            ->setRequired('Please enter new username.')
+            ->addRule($form::MinLength, 'Must be at least %d characters long.', 2);
+
+        $form->addEmail('email', 'New email:')
+            ->setHtmlAttribute('class', 'form-control-lg')
+            ->setRequired('Please enter new email.')
+            ->addRule($form::Email, 'Please enter a valid email address.');
+
+        if ($id) {
+            $form->addPassword('password', 'New password:')
+                ->setHtmlAttribute('class', 'form-control-lg')
+                ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
+        } else {
+            $form->addPassword('password', 'New password:')
+                ->setHtmlAttribute('class', 'form-control-lg')
+                ->setRequired('Please create new password.')
+                ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
+        }
+
+        // $form->addPassword('password', 'New password:')
+        //     ->setHtmlAttribute('class', 'form-control-lg')
+        //     ->setRequired('Please create new password.')
+        //     ->addRule($form::MinLength, 'Password must have at least %d characters.', 5);
+
+        $form->addSubmit('save', 'Confirm')->setHtmlAttribute('class', 'btn btn-success btn-lg');
+
+        return $form;
     }
 }
 

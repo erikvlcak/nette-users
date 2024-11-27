@@ -40,23 +40,21 @@ final class Template_ef93a2f07b extends Latte\Runtime\Template
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/main.css" />
     ';
-		$this->renderBlock('styles', get_defined_vars()) /* line 14 */;
+		$this->renderBlock('styles', get_defined_vars()) /* line 12 */;
 		echo '
   </head>
   <body class="d-flex flex-column h-100 position-relative">
     <div class="position-absolute w-100">
 ';
-		foreach ($flashes as $flash) /* line 18 */ {
+		foreach ($flashes as $flash) /* line 16 */ {
 			echo '      <div class="alert mx-auto w-100 alert-';
-			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 19 */;
+			echo LR\Filters::escapeHtmlAttr($flash->type) /* line 17 */;
 			echo ' alert-dismissible fade show" role="alert">
         ';
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 20 */;
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 18 */;
 			echo '
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
@@ -66,10 +64,10 @@ final class Template_ef93a2f07b extends Latte\Runtime\Template
 
 		echo '    </div>
     <div class="container h-100">';
-		$this->renderBlock('content', [], 'html') /* line 25 */;
+		$this->renderBlock('content', [], 'html') /* line 23 */;
 		echo '</div>
 ';
-		$this->renderBlock('scripts', get_defined_vars()) /* line 26 */;
+		$this->renderBlock('scripts', get_defined_vars()) /* line 24 */;
 		echo '  </body>
 </html>
 ';
@@ -81,7 +79,7 @@ final class Template_ef93a2f07b extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['flash' => '18'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['flash' => '16'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -89,22 +87,21 @@ final class Template_ef93a2f07b extends Latte\Runtime\Template
 	}
 
 
-	/** {block styles} on line 14 */
+	/** {block styles} on line 12 */
 	public function blockStyles(array $ʟ_args): void
 	{
 		echo ' ';
 	}
 
 
-	/** {block scripts} on line 26 */
+	/** {block scripts} on line 24 */
 	public function blockScripts(array $ʟ_args): void
 	{
 		echo '    <script src="https://unpkg.com/nette-forms@3"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
 ';
 	}
